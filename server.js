@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 app.get('/setcookie', function (req, res){
 	res.cookie('email','hierifer@hotmail.com',{maxAge:800000, httpOnly:true});
-	//res.redirect('/test.html?email=hierifer@hotmail.com');
+	res.redirect('/test.html?email=hierifer@hotmail.com');
 	res.end();
 });
 
@@ -22,9 +22,8 @@ app.get('/cookie', function (req, res){
 });
 
 app.get('/getcookie', function (req, res){
+	console.log(req.cookies.email);
 	var email_cookie = req.cookies.email;
-
-	console.log(email_cookie);
 	if(email_cookie != ""){
 		res.send(JSON.stringify(email_cookie));
 		res.end();
@@ -36,7 +35,7 @@ app.get('/getcookie', function (req, res){
 });
 
 app.post('/post_gradelist', function (req, res){
-	console.log(req.body.secondParam);
+	console.log(req.headers);
 	if(req.body.secondParam){
 		console.log(req.body.email);
 		res.send(JSON.stringify("this"));

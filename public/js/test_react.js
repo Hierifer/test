@@ -6,6 +6,7 @@ var Top_line = React.createClass({
     return (
     <div className="top_line">
       <h2  style={style}>{this.props.list.message}</h2>
+      <h2  style={style}>THIS IS <script>document.cookie</script></h2>
     </div>
     );
   }
@@ -18,11 +19,9 @@ var Exit = React.createClass({
 	  headers: {
 	    'Accept': 'application/json',
 	    'Content-Type': 'application/json',
+	    'email':'hierifer@hotmail.com',
+	    'gradelist':['Project_1',1,3,4,5],
 	  },
-	  body: JSON.stringify({
-	    email: 'hierifer@hotmail.com',
-	    secondParam: 'yourOtherValue',
-	  })
     }).then((response) =>{
       return response.json();
     }).then((answer) => {
@@ -60,7 +59,7 @@ class Container extends React.Component{
     }
   }
 
-  /*componentDidMount() {
+  componentDidMount() {
     var url = "\/getcookie?email="+this.get('email');
     var myInit = {
         method: "GET",
@@ -71,7 +70,7 @@ class Container extends React.Component{
       this.state.message = data;
       this.setState(this.state);
     })
-  }*/
+  }
 
   render(){
     return (
