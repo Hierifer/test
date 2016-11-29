@@ -3,10 +3,14 @@ var Top_line = React.createClass({
   var style = {
     display: 'inline'
   }
+
+  var x = document.cookie;
+  console.log(x)
+
     return (
     <div className="top_line">
       <h2  style={style}>{this.props.list.message}</h2>
-      <h2  style={style}>THIS IS <script>document.cookie</script></h2>
+      <h2  style={style}>THIS IS <script>{document.cookie}</script></h2>
     </div>
     );
   }
@@ -36,7 +40,7 @@ var Exit = React.createClass({
   render: function() {
     return (
       <div className="exit"  >
-        <button onClick={this.redirect} type="button" className="btn btn-info"><span id="exit">Exit Voting</span></button>  
+        <button onClick={this.redirect} type="button" className="btn btn-info"><span id="exit">Exit Voting</span></button>
       </div>
     );
   }
